@@ -1,13 +1,13 @@
 import React from "react";
 import '../index.css';
-import Header from './Header/Header'
-import Main from "./Main/Main";
-import Footer from "./Footer/Footer";
-import PopupEditProfile from "./PopupEditProfile/PopupEditProfile";
-import PopupAddCard from "./PopupAddCard/PopupAddCard";
-import PopupAvatarEdit from "./PopupAvatarEdit/PopupAvatarEdit";
-import PopupSubmitDelete from "./PopupSubmitDelete/PopupSubmitDelete";
-import ImagePopup from "./ImagePopup/ImagePopup";
+import Header from './Header'
+import Main from "./Main";
+import Footer from "./Footer";
+import PopupEditProfile from "./PopupEditProfile";
+import PopupAddCard from "./PopupAddCard";
+import PopupAvatarEdit from "./PopupAvatarEdit";
+import PopupSubmitDelete from "./PopupSubmitDelete";
+import ImagePopup from "./ImagePopup";
 
 function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);

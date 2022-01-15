@@ -1,7 +1,7 @@
 import React from "react";
-import EditAvatar from "../../images/profile_photo_edit.svg"
-import {api} from "../../utils/utils"
-import Cards from "../Cards/Cards";
+import EditAvatar from "../images/profile_photo_edit.svg"
+import {api} from "../utils/utils"
+import Cards from "./Cards";
 
 function Main(props) {
   const [userName, setUserName] = React.useState('');

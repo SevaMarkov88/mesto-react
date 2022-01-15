@@ -1,4 +1,4 @@
-import PopupWithForm from "../PopupWithForm/PopupWithForm";
+import PopupWithForm from "./PopupWithForm";
 
 function PopupSubmitDelete() {
   return (
