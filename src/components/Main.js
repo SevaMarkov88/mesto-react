@@ -27,8 +27,8 @@ function Main(props) {
     <main className="main">
 
       <section className="profile">
-        <div className="profile__popup">
-          <img src={EditAvatar} alt="Редактировать профиль" onClick={props.onEditAvatar}/>
+        <div className="profile__popup"  onClick={props.onEditAvatar}>
+          <img src={EditAvatar} alt="Редактировать профиль"/>
         </div>
         <img src={userAvatar} alt="Фото профиля" className="profile__image"/>
         <div className="profile__info">

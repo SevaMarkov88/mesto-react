@@ -1,9 +1,9 @@
-import Logo from "../images/logo.svg";
+import logo from "../images/logo.svg";
 
 function Header() {
   return (
     <header className="header">
-      <img src={Logo} alt="Логотип" className="logo header__logo" />
+      <img src={logo} alt="Логотип" className="logo header__logo" />
     </header>
   )
 }
