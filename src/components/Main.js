@@ -1,7 +1,7 @@
 import React from "react";
 import EditAvatar from "../images/profile_photo_edit.svg"
 import {api} from "../utils/utils"
-import Cards from "./Cards";
+import Card from "./Card";
 
 function Main(props) {
   const [userName, setUserName] = React.useState('');
@@ -47,7 +47,7 @@ function Main(props) {
       <section className="elements">
         {cards.map((item, index) => {
           return (
-            <Cards
+            <Card
               card={item}
               cardIndex={index}
               key={item._id}
