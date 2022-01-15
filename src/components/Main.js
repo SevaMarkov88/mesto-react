@@ -1,14 +1,7 @@
 import React from "react";
 import EditAvatar from "../images/profile_photo_edit.svg"
-import Api from "../utils/utils"
+import api from "../utils/utils"
 import Card from "./Card";
-
-const api = new Api({
-   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-32',
-   headers: {
-    authorization: '78a9a2e8-0028-4357-9dc5-3dfee740ccb0'
-   }
- })
 
 function Main(props) {
   const [userName, setUserName] = React.useState('');
