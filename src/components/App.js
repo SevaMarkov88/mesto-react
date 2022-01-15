@@ -8,7 +8,6 @@ import PopupAddCard from "./PopupAddCard";
 import PopupAvatarEdit from "./PopupAvatarEdit";
 import PopupSubmitDelete from "./PopupSubmitDelete";
 import ImagePopup from "./ImagePopup";
-import api from "../utils/utils"
 
 function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);
