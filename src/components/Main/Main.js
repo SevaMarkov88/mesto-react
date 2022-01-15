@@ -1,4 +1,3 @@
-'use strict'
 import React from "react";
 import EditAvatar from "../../images/profile_photo_edit.svg"
 import {api} from "../../utils/utils"

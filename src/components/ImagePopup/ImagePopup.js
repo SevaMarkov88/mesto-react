@@ -1,4 +1,3 @@
-'use strict'
 function ImagePopup(props) {
   return (
     <div className={`popup popup_image-fullscreen ${props.isOpen && "popup_opened"}`}>
