@@ -1,4 +1,4 @@
-class Api {
+export default class Api {
   constructor(options) {
     this.url = options.baseUrl;
     this.token = options.headers.authorization;
@@ -112,11 +112,12 @@ class Api {
   }
 }
 
-const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-32',
-  headers: {
-    authorization: '78a9a2e8-0028-4357-9dc5-3dfee740ccb0'
-  }
-})
-
-export {api};
+//Атвотесты не пропустили такой варинат
+// const api = new Api({
+//   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-32',
+//   headers: {
+//     authorization: '78a9a2e8-0028-4357-9dc5-3dfee740ccb0'
+//   }
+// })
+//
+// export {api};
