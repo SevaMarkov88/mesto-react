@@ -11,6 +11,10 @@
   line-height: 17px;
 }
 
+.popup__text:hover {
+  cursor: text;
+}
+
 @media (max-width: 550px) {
   .popup__text {
     width: 238px;
