@@ -6,10 +6,7 @@
   top: 20px;
   right: 20px;
   transition: opacity ease 0.5s;
-  background: transparent;
-  background-image: url(../../../images/trash.svg);
-  background-position: center;
-  background-repeat: no-repeat;
+  background: transparent url(../../../images/trash.svg) no-repeat center;
   z-index: 1;
 }
 
