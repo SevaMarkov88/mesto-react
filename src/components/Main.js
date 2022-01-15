@@ -1,6 +1,6 @@
 import React from "react";
 import EditAvatar from "../images/profile_photo_edit.svg"
-import api from "../utils/utils"
+import {api} from "../utils/api"
 import Card from "./Card";
 
 function Main(props) {
@@ -11,10 +11,10 @@ function Main(props) {
 
   React.useEffect(() => {
     api.getUserInfo()
-      .then(({name, about, avatar, _id}) => {
-        setUserName(name);
-        setUserDescription(about);
-        setUserAvatar(avatar)
+      .then((data) => {
+        setUserName(data.name);
+        setUserDescription(data.about);
+        setUserAvatar(data.avatar)
       })
   }, [])
 
