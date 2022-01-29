@@ -1,33 +1,10 @@
 import React from "react";
-import EditAvatar from "../images/profile_photo_edit.svg"
-import {api} from "../utils/api";
+import EditAvatar from "../images/profile_photo_edit.svg";
 import Card from "./Card";
 import {CurrentUserContext} from '../contexts/CurrentUserContext';
 
 function Main(props) {
   const currentUser = React.useContext(CurrentUserContext);
-  const [cards, setCards] = React.useState([]);
-
-  function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
-
-    api.changeLikeCardStatus(card._id, !isLiked)
-      .then((newCard) => {
-        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-      });
-  }
-
-  function handleCardDelete(card) {
-    api.deleteCard(card._id)
-      .then((newCard) => {
-        setCards((state) => state.filter((c) => c._id === card._id ? newCard : c))
-      })
-  }
-
-  React.useEffect(() => {
-    api.getInitialCards()
-      .then(cardsFromServer => setCards(cardsFromServer))
-  }, [])
 
   return (
     <main className="main">
@@ -51,15 +28,15 @@ function Main(props) {
 
 
       <section className="elements">
-        {cards.map((item, index) => {
+        {props.cards.map((item, index) => {
           return (
             <Card
               card={item}
               cardIndex={index}
               key={item._id}
               onCardClick={props.onCardClick}
-              onCardLike={handleCardLike}
-              onCardDelete={handleCardDelete}
+              onCardLike={props.onCardLike}
+              onCardDelete={props.onCardDelete}
             />
           )
         })}
