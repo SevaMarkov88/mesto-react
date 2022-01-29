@@ -40,24 +40,24 @@ class Api {
       .then(res => this._handleFetch(res))
   }
 
-  changeLikeCardStatus(elementID, isLiked) {
+  changeLikeCardStatus(id, isLiked) {
     if (isLiked) {
-      return this.removeLike(elementID);
+      return this.addLike(id);
     } else {
-      return this.addLike(elementID);
+      return this.removeLike(id);
     }
   }
 
-  removeLike(elementId) {
-    return fetch(`${this.url}/cards/${elementId}/likes`, {
+  removeLike(id) {
+    return fetch(`${this.url}/cards/likes/${id}`, {
       method: 'DELETE',
       headers: this.headers
     })
       .then(res => this._handleFetch(res));
   }
 
-  addLike(elementId) {
-    return fetch(`${this.url}/cards/${elementId}/likes`, {
+  addLike(id) {
+    return fetch(`${this.url}/cards/likes/${id}`, {
       method: 'PUT',
       headers: this.headers
     })
