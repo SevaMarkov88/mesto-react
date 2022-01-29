@@ -49,6 +49,14 @@ class Api {
       .then(res => this._handleFetch(res))
   }
 
+  changeLikeCardStatus(elementID, isLiked) {
+    if (isLiked) {
+      return this.removeLike(elementID);
+    } else {
+      return this.addLike(elementID);
+    }
+  }
+
   removeLike(elementId) {
     return fetch(`${this.url}/cards/${elementId}/likes`, {
       method: 'DELETE',
@@ -70,6 +78,7 @@ class Api {
     })
       .then(res => this._handleFetch(res));
   }
+
 
   deleteCard(elementId) {
     return fetch(`${this.url}/cards/${elementId}`, {

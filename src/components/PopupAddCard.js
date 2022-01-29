@@ -1,7 +1,6 @@
 import PopupWithForm from "./PopupWithForm";
 
 function PopupAddCard(props) {
-    console.log('Card', props)
     return (
         <PopupWithForm name="add-card" title="Новое место" btn="Создать" formName="add"
                        isOpen={props.isOpen && "popup_opened"}

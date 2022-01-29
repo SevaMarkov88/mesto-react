@@ -1,7 +1,6 @@
 import PopupWithForm from "./PopupWithForm";
 
 function PopupAvatarEdit(props) {
-    console.log('Edit', props)
     return (
         <PopupWithForm name="avatar-edit" title="Обновить аватар" btn="Сохранить" formName="avatar"
                        isOpen={props.isOpen && "popup_opened"}

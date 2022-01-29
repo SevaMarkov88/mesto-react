@@ -1,5 +1,4 @@
 function PopupWithForm(props) {
-    console.log('Form', props)
   return (
     <div className={`popup popup_type_${props.name} ${props.isOpen}`}>
       <div className="popup__main-container">
