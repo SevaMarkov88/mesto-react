@@ -22,12 +22,9 @@ function App() {
 
   React.useEffect(() => {
       api.getUserInfo()
-        .then(
-          (data) => {
-            setCurrentUser(data);
-          }
-        )
-  })
+        .then((data) => {console.log(data); setCurrentUser(data)})
+        .catch((err) => console.log(err))
+  }, [])
 
 
   function handleCardClick(card) {
@@ -48,10 +45,17 @@ function App() {
   }
 
   function handleUpdateUser(data) {
-    api.setUserInfo(data.name, data.description)
-      .then((data) => {
-        setCurrentUser(data);
-      })
+    api.setUserInfo(data.name, data.about)
+      .then((data) => setCurrentUser(data))
+      .catch((err) => console.log(err))
+      .finally(closeAllPopups)
+  }
+
+  function handleUpdateAvatar(data) {
+    api.updateAvatar(data.avatar)
+      .then((data) => setCurrentUser(data))
+      .catch((err) => console.log(err))
+      .finally(closeAllPopups)
   }
 
   function closeAllPopups() {
@@ -89,6 +93,7 @@ function App() {
         <PopupAvatarEdit
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}
+          onUpdateAvatar={handleUpdateAvatar}
         />
         <PopupSubmitDelete/>
         <ImagePopup

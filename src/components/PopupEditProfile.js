@@ -9,7 +9,7 @@ function PopupEditProfile(props) {
 
   React.useEffect(() => {
     setName(currentUser.name);
-    setDescription(currentUser.description);
+    setDescription(currentUser.about);
   }, [currentUser])
 
   function handleNameChange(e) {
@@ -22,7 +22,6 @@ function PopupEditProfile(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-
     props.onUpdateUser({
       name,
       about: description,
@@ -30,16 +29,38 @@ function PopupEditProfile(props) {
   }
 
   return (
-    <PopupWithForm name='edit-profile' title='Редактировать профиль' btn="Сохранить" formName="edit"
-                   isOpen={props.isOpen && "popup_opened"}
-                   onClose={props.onClose} onSubmit={handleSubmit}>
-      <input type="text" id="input-name" className="popup__text popup__text_input-type_name" placeholder="Имя"
-             minLength="2" maxLength="40" required autoFocus autoComplete="off" name="name" value={name}
-             onChange={handleNameChange}/>
+    <PopupWithForm
+        name='edit-profile'
+        title='Редактировать профиль'
+        btn="Сохранить"
+        formName="edit"
+        isOpen={props.isOpen && "popup_opened"}
+        onClose={props.onClose}
+        onSubmit={handleSubmit}>
+      <input
+           type="text"
+           id="input-name"
+           className="popup__text popup__text_input-type_name"
+           placeholder="Имя"
+           minLength="2"
+           maxLength="40"
+           required autoFocus autoComplete="off"
+           name="name"
+           value={name}
+           onChange={handleNameChange}/>
       <span className="input-name-error popup__span-error"/>
-      <input type="text" id="input-job" className="popup__text popup__text_input-type_job" value={description}
-             placeholder="О себе" onChange={handleDescriptionChange} minLength="2" maxLength="200" required
-             autoComplete="off" name="job"/>
+      <input
+          type="text"
+          id="input-job"
+          className="popup__text popup__text_input-type_job"
+          placeholder="О себе"
+          minLength="2"
+          maxLength="200"
+          required
+          autoComplete="off"
+          name="job"
+          value={description}
+          onChange={handleDescriptionChange} />
       <span className="input-job-error popup__span-error"/>
     </PopupWithForm>
   )

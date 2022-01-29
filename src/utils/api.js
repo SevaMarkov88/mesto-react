@@ -1,7 +1,7 @@
 class Api {
   constructor(options) {
     this.url = options.baseUrl;
-    this.token = options.headers.authorization;
+    this.headers = options.headers;
   }
 
   _handleFetch(res) {
@@ -14,10 +14,7 @@ class Api {
   getUserInfo() {
     return fetch(`${this.url}/users/me`, {
       method: 'GET',
-      headers: {
-        'authorization': this.token,
-        'Content-Type': 'application/json'
-      }
+      headers: this.headers
     })
       .then(res => this._handleFetch(res));
 
@@ -26,10 +23,7 @@ class Api {
   getInitialCards() {
     return fetch(`${this.url}/cards`, {
       method: 'GET',
-      headers: {
-        'authorization': this.token,
-        'Content-Type': 'application/json'
-      }
+      headers: this.headers
     })
       .then(res => this._handleFetch(res));
   }
@@ -37,10 +31,7 @@ class Api {
   addNewCard(name, link) {
     return fetch(`${this.url}/cards`, {
       method: 'POST',
-      headers: {
-        'authorization': this.token,
-        'Content-Type': 'application/json'
-      },
+      headers: this.headers,
       body: JSON.stringify({
         name: name,
         link: link
@@ -60,10 +51,7 @@ class Api {
   removeLike(elementId) {
     return fetch(`${this.url}/cards/${elementId}/likes`, {
       method: 'DELETE',
-      headers: {
-        'authorization': this.token,
-        'Content-Type': 'application/json'
-      }
+      headers: this.headers
     })
       .then(res => this._handleFetch(res));
   }
@@ -71,10 +59,7 @@ class Api {
   addLike(elementId) {
     return fetch(`${this.url}/cards/${elementId}/likes`, {
       method: 'PUT',
-      headers: {
-        'authorization': this.token,
-        'Content-Type': 'application/json'
-      }
+      headers: this.headers
     })
       .then(res => this._handleFetch(res));
   }
@@ -83,10 +68,7 @@ class Api {
   deleteCard(elementId) {
     return fetch(`${this.url}/cards/${elementId}`, {
       method: 'DELETE',
-      headers: {
-        'authorization': this.token,
-        'Content-Type': 'application/json'
-      }
+      headers: this.headers
     })
       .then(res => this._handleFetch(res));
   }
@@ -94,10 +76,7 @@ class Api {
   setUserInfo(name, about) {
     return fetch(`${this.url}/users/me`, {
       method: 'PATCH',
-      headers: {
-        'authorization': this.token,
-        'Content-Type': 'application/json'
-      },
+      headers: this.headers,
       body: JSON.stringify({
         name: name,
         about: about
@@ -109,10 +88,7 @@ class Api {
   updateAvatar(link) {
     return fetch(`${this.url}/users/me/avatar`, {
       method: 'PATCH',
-      headers: {
-        'authorization': this.token,
-        'Content-Type': 'application/json'
-      },
+      headers: this.headers,
       body: JSON.stringify({
         avatar: link
       })
@@ -125,7 +101,8 @@ class Api {
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-32',
   headers: {
-    authorization: '78a9a2e8-0028-4357-9dc5-3dfee740ccb0'
+    authorization: '78a9a2e8-0028-4357-9dc5-3dfee740ccb0',
+    'Content-Type': 'application/json'
   }
 })
 
