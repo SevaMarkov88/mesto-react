@@ -25,9 +25,6 @@ function App() {
         .then(
           (data) => {
             setCurrentUser(data);
-          },
-          (err) => {
-            console.log(err);
           }
         )
   })
@@ -50,6 +47,13 @@ function App() {
     setAddPlacePopupOpen(true);
   }
 
+  function handleUpdateUser(data) {
+    api.setUserInfo(data.name, data.description)
+      .then((data) => {
+        setCurrentUser(data);
+      })
+  }
+
   function closeAllPopups() {
     setEditAvatarPopupOpen(false);
     setAddPlacePopupOpen(false);
@@ -57,6 +61,7 @@ function App() {
     setImagePopupOpen(false);
     setSelectedCard(null);
   }
+
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -75,6 +80,7 @@ function App() {
         <PopupEditProfile
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
+          onUpdateUser={handleUpdateUser}
         />
         <PopupAddCard
           isOpen={isAddPlacePopupOpen}

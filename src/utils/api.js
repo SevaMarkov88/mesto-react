@@ -91,7 +91,7 @@ class Api {
       .then(res => this._handleFetch(res));
   }
 
-  updateUserInfo(name, about) {
+  setUserInfo(name, about) {
     return fetch(`${this.url}/users/me`, {
       method: 'PATCH',
       headers: {
