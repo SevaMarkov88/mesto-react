@@ -46,8 +46,8 @@ function App() {
 
   function handleCardDelete(card) {
     api.deleteCard(card._id)
-      .then((newCard) => {
-        const newCards = cards.filter((c) => c._id === card._id ? newCard : c);
+      .then(() => {
+        const newCards = cards.filter((c) => c._id !== card._id);
         setCards(newCards);
       })
       .catch((err) => console.log(err))
