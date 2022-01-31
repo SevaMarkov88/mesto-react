@@ -4,7 +4,6 @@ import Header from './Header'
 import Main from "./Main";
 import Footer from "./Footer";
 import PopupEditProfile from "./PopupEditProfile";
-import PopupAddCard from "./PopupAddCard";
 import PopupAvatarEdit from "./PopupAvatarEdit";
 import PopupSubmitDelete from "./PopupSubmitDelete";
 import ImagePopup from "./ImagePopup";
@@ -127,10 +126,6 @@ function App() {
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
           onUpdateUser={handleUpdateUser}
-        />
-        <PopupAddCard
-          isOpen={isAddPlacePopupOpen}
-          onClose={closeAllPopups}
         />
         <PopupAvatarEdit
           isOpen={isEditAvatarPopupOpen}
