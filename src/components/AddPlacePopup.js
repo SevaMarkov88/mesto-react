@@ -5,6 +5,11 @@ function AddPlacePopup(props) {
   const [name, setName] = React.useState('');
   const [link, setLink] = React.useState('');
 
+  React.useEffect(() => {
+    setName('');
+    setLink('');
+  }, [isOpen]);
+
   function handleNameChange(e) {
     setName(e.target.value)
   }
@@ -36,6 +41,7 @@ function AddPlacePopup(props) {
            maxLength="30"
            required autoComplete="off"
            name="title"
+           value={name || ""}
            onChange={handleNameChange}/>
         <span className="input-title-error popup__span-error"/>
         <input
@@ -45,6 +51,7 @@ function AddPlacePopup(props) {
             placeholder="Ссылка на картинку"
             required autoComplete="off"
             name="link"
+            value={link || ""}
             onChange={handleLinkChange}/>
           <span className="input-link-error popup__span-error"/>
     </PopupWithForm>

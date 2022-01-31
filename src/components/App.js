@@ -72,23 +72,29 @@ function App() {
 
   function handleUpdateUser(data) {
     api.setUserInfo(data.name, data.about)
-      .then((data) => setCurrentUser(data))
+      .then((data) => {
+        setCurrentUser(data);
+        closeAllPopups();
+      })
       .catch((err) => console.log(err))
-      .finally(closeAllPopups)
   }
 
   function handleUpdateAvatar(data) {
     api.updateAvatar(data.avatar)
-      .then((data) => setCurrentUser(data))
+      .then((data) => {
+        setCurrentUser(data);
+        closeAllPopups();
+      })
       .catch((err) => console.log(err))
-      .finally(closeAllPopups)
   }
 
   function handleAddPlaceSubmit(card) {
     api.addNewCard(card.name, card.link)
-      .then((card) => setCards([card, ...cards]))
+      .then((card) => {
+        setCards([card, ...cards]);
+          closeAllPopups();
+      })
       .catch((err) => console.log(err))
-      .finally(closeAllPopups)
   }
 
 
