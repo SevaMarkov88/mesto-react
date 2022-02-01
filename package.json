@@ -1,5 +1,6 @@
 {
   "name": "mesto-react",
+  "homepage": "https://sevamarkov88.github.io/mesto-react/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,6 +13,8 @@
     "web-vitals": "^2.1.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -39,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^3.2.3",
     "mini-css-extract-plugin": "2.4.5"
   }
 }
