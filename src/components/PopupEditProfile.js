@@ -46,7 +46,7 @@ function PopupEditProfile(props) {
            maxLength="40"
            required autoFocus autoComplete="off"
            name="name"
-           value={name}
+           value={name || ''}
            onChange={handleNameChange}/>
       <span className="input-name-error popup__span-error"/>
       <input
@@ -59,7 +59,7 @@ function PopupEditProfile(props) {
           required
           autoComplete="off"
           name="job"
-          value={description}
+          value={description || ''}
           onChange={handleDescriptionChange} />
       <span className="input-job-error popup__span-error"/>
     </PopupWithForm>

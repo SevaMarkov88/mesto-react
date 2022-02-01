@@ -41,7 +41,7 @@ function AddPlacePopup(props) {
            maxLength="30"
            required autoComplete="off"
            name="title"
-           value={name}
+           value={name || ''}
            onChange={handleNameChange}/>
         <span className="input-title-error popup__span-error"/>
         <input
@@ -51,7 +51,7 @@ function AddPlacePopup(props) {
             placeholder="Ссылка на картинку"
             required autoComplete="off"
             name="link"
-            value={link}
+            value={link || ''}
             onChange={handleLinkChange}/>
           <span className="input-link-error popup__span-error"/>
     </PopupWithForm>

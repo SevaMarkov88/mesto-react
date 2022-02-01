@@ -33,7 +33,7 @@ function PopupAvatarEdit(props) {
           placeholder="Ссылка на картинку"
           required autoComplete="off"
           name="link"
-          value={link}
+          value={link || ''}
           onChange={handleLinkChange}
           ref={avatarRef}/>
       <span className="input-avatar-error popup__span-error"/>
