@@ -3,12 +3,17 @@ import PopupWithForm from "./PopupWithForm";
 
 function PopupAvatarEdit(props) {
   const avatarRef = React.useRef();
+  const [link, setLink] = React.useState('');
 
   function handleSubmit(e) {
     e.preventDefault();
     props.onUpdateAvatar({
       avatar: avatarRef.current.value,
     });
+  }
+
+  function handleLinkChange(e) {
+    setLink(e.target.value)
   }
 
 
@@ -28,6 +33,8 @@ function PopupAvatarEdit(props) {
           placeholder="Ссылка на картинку"
           required autoComplete="off"
           name="link"
+          value={link}
+          onChange={handleLinkChange}
           ref={avatarRef}/>
       <span className="input-avatar-error popup__span-error"/>
     </PopupWithForm>

@@ -17,6 +17,7 @@ function App() {
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
   const [isImagePopupOpen, setImagePopupOpen] = React.useState(false);
+  const [isSubmitDeletePopupOpen, setSubmitDeletePopupOpen] = React.useState(false);
 
   const [selectedCard, setSelectedCard] = React.useState(null);
 
@@ -48,6 +49,7 @@ function App() {
       .then(() => {
         const newCards = cards.filter((c) => c._id !== card._id);
         setCards(newCards);
+        closeAllPopups();
       })
       .catch((err) => console.log(err))
   }
@@ -67,6 +69,11 @@ function App() {
 
   function handleAddPlaceClick() {
     setAddPlacePopupOpen(true);
+  }
+
+  function handleSubmitDeleteClick(card) {
+    setSelectedCard(card);
+    setSubmitDeletePopupOpen(true);
   }
 
   function handleUpdateUser(data) {
@@ -102,6 +109,7 @@ function App() {
     setAddPlacePopupOpen(false);
     setEditProfilePopupOpen(false);
     setImagePopupOpen(false);
+    setSubmitDeletePopupOpen(false);
     setSelectedCard(null);
   }
 
@@ -117,7 +125,7 @@ function App() {
             onAddPlace={handleAddPlaceClick}
             onCardClick={handleCardClick}
             onCardLike={handleCardLike}
-            onCardDelete={handleCardDelete}
+            onCardDelete={handleSubmitDeleteClick}
           />
           <Footer/>
         </div>
@@ -132,7 +140,12 @@ function App() {
           onClose={closeAllPopups}
           onUpdateAvatar={handleUpdateAvatar}
         />
-        <PopupSubmitDelete/>
+        <PopupSubmitDelete
+        isOpen={isSubmitDeletePopupOpen}
+        card={selectedCard}
+        onClose={closeAllPopups}
+        onSubmitDelete={handleCardDelete}
+        />
         <ImagePopup
           isOpen={isImagePopupOpen}
           card={selectedCard}
