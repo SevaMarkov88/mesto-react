@@ -16,7 +16,6 @@ function PopupAvatarEdit(props) {
     setLink(e.target.value)
   }
 
-
   return (
     <PopupWithForm
         name="avatar-edit"

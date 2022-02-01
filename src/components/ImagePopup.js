@@ -1,4 +1,5 @@
 function ImagePopup(props) {
+  
   return (
     <div className={`popup popup_image-fullscreen ${props.isOpen && "popup_opened"}`}>
       <div className="popup__container-image">

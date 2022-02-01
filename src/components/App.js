@@ -20,9 +20,7 @@ function App() {
   const [isSubmitDeletePopupOpen, setSubmitDeletePopupOpen] = React.useState(false);
 
   const [selectedCard, setSelectedCard] = React.useState(null);
-
   const [currentUser, setCurrentUser] = React.useState({});
-
   const [cards, setCards] = React.useState([]);
 
   React.useEffect(() => {
@@ -102,7 +100,6 @@ function App() {
       })
       .catch((err) => console.log(err))
   }
-
 
   function closeAllPopups() {
     setEditAvatarPopupOpen(false);

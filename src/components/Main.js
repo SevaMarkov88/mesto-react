@@ -8,7 +8,7 @@ function Main(props) {
 
   return (
     <main className="main">
-
+      
       <section className="profile">
         <div className="profile__popup" onClick={props.onEditAvatar}>
           <img src={EditAvatar} alt="Редактировать профиль"/>
@@ -25,7 +25,6 @@ function Main(props) {
         <button className="profile__button-add" aria-label="Добавить профиль" type="button"
                 onClick={props.onAddPlace}/>
       </section>
-
 
       <section className="elements">
         {props.cards.map((item, index) => {

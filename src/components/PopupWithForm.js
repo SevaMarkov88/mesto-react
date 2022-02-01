@@ -1,4 +1,5 @@
 function PopupWithForm(props) {
+  
   return (
     <div className={`popup popup_type_${props.name} ${props.isOpen}`}>
       <div className="popup__main-container">
@@ -7,8 +8,7 @@ function PopupWithForm(props) {
           <h3 className="popup__title">{props.title}</h3>
             <form
               className={`popup__form form-${props.formName}`}
-              onSubmit={props.onSubmit} noValidate
-            >
+              onSubmit={props.onSubmit} noValidate>
                 {props.children}
                 <button className="popup__button" type="submit" aria-label="Создать карточку">{props.btn}</button>
             </form>
